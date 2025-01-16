@@ -1,0 +1,21 @@
+services:
+  vps-value:
+    image: findthewayxf/vps-value:latest
+    container_name: vps-value
+    #ports:
+    #  - 8000:8000
+    environment:
+      - ADMIN_PASSWORD=${ADMIN_PASSWORD}
+      - FIXER_API_KEY=${FIXER_API_KEY}
+      #- DOMAIN=${DOMAIN}
+      #- BASE_URL=https://${DOMAIN}
+    volumes:
+      - ./data:/app/data
+      - ./static:/app/static
+    networks:
+      npm:
+        ipv4_address: 172.18.0.26
+
+networks:
+  npm:
+    external: true
