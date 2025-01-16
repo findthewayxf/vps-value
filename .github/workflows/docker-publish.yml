@@ -29,7 +29,7 @@ jobs:
         uses: docker/login-action@v3 # 使用 v3 来支持 PAT
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_PAT }} # 使用 PAT，而不是密码
+          password: ${{ secrets.DOCKERHUB_TOKEN }} # 使用 PAT，而不是密码
 
       - name: 构建和推送
         uses: docker/build-push-action@v5
